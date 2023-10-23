@@ -26,21 +26,16 @@ function drawStatic(two, data) {
 
     // start of our code
     let i = 0;
-/*
+
     while (i < data.length)
     {
-        const rect = two.makeRectangle(posX + 2*i*barGap, posY - data[i]/2, 5, data[i])
-        if (i % 2 == 0)
-        {
-            rect.fill = "orange";
-        } else {
-            rect.fill = "green";
-        }
-        rect.stroke = "black";
+        const rect = two.makeRectangle(posX + 2*i*barGap, posY - yScale(data[i])/2, 5, yScale(data[i]))
+        rect.fill = "blue";
+        rect.stroke = "blue";
         rect.linewidth = 1;
         i++;
     }
-*/
+/*
     while (i < 300)
     {
         let height = Math.floor(Math.random() * 350 + 20);
@@ -56,6 +51,7 @@ function drawStatic(two, data) {
         i++;
     }
     // end of our code
+    */
 }
 
 /**
@@ -90,10 +86,10 @@ function getArray(len) {
 function drawStaticStacked(two, data) {
 
     let posX = 155;
-    const posY = 500;
+    const posY = 400;
     const barGap = 5;
 
-    let colorArray = ["green", "yellow", "blue", "orange", "red", "magenta", "grey", "purple", "black"];
+    // Our code START
     let i = 0;
 
     // items array is used for testing 
@@ -102,15 +98,15 @@ function drawStaticStacked(two, data) {
         items.push(getArray(5));
     }
 
-    while (i < items.length) {
+    while (i < data.length) {
         let j = 0;
         let vMove = 0;
-        while (j < items[i].length) {
-            const rect = two.makeRectangle(posX + 2*i*barGap, posY - items[i][j].value/2 - vMove, barGap, items[i][j].value)
-            rect.fill = colorArray[items[i][j].category % 9];
+        while (j < data[i].length) {
+            const rect = two.makeRectangle(posX + 2*i*barGap, posY - yScale(data[i][j].value)/2 - vMove, barGap, yScale(data[i][j].value))
+            rect.fill = getColor(data[i][j].category)
             rect.stroke = "black";
             rect.linewidth = 1;
-            vMove += items[i][j].value;
+            vMove += yScale(data[i][j].value);
             j++;
         }
         i++;
@@ -132,7 +128,7 @@ function drawStaticStacked(two, data) {
         i++;
     }
     */
-    // TODO: insert code here
+    // Our code END
 }
 
 //-----------------------------------------------------------------------------
@@ -150,6 +146,8 @@ function drawStaticStacked(two, data) {
  * @param {Array} highlights - Array of indices where the algorithm looked
  */
 function drawSorting(data, changes, highlights) {
+
+
 
     let posX = 155;
     const posY = 400;
