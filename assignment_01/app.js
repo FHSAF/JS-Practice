@@ -21,7 +21,7 @@ let BARS = [];
 function drawStatic(two, data) {
 
     let posX = 155;
-    const posY = 800;
+    const posY = 400;
     const barGap = 5;
 
     // start of our code
@@ -90,7 +90,7 @@ function getArray(len) {
 function drawStaticStacked(two, data) {
 
     let posX = 155;
-    const posY = 800;
+    const posY = 500;
     const barGap = 5;
 
     let colorArray = ["green", "yellow", "blue", "orange", "red", "magenta", "grey", "purple", "black"];
