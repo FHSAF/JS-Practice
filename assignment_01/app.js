@@ -140,20 +140,16 @@ function drawStaticStacked(two, data) {
  * respective bars in the *BARS* array.
  * This function is called each iteration of the sorting algorithm
  * until the data is sorted.
- *
  * @param {Array} data - Array of numbers
  * @param {Array} changes - Array of indices where the algorithm changed sth
  * @param {Array} highlights - Array of indices where the algorithm looked
+ * 
  */
 function drawSorting(data, changes, highlights) {
-
-
-
+    console.log(data, changes, highlights);
     let posX = 155;
     const posY = 400;
     const barGap = 5;
-
-    // BONUS: insert code here
 }
 
 /**
