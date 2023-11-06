@@ -90,6 +90,7 @@ function draw(two, width, height) {
     two.bind('update', (frameCount, deltaTime) => {
         sum += deltaTime;
         if (sum <= barTime) {
+            // BARS[deviantBar] = (width - 230) / barCount;
             BARS[deviantBar].height = HEIGHTS[deviantBar];
             BARS[deviantBar].fill = getColorScale(deviantBar);
         } else if (sum <= barTime + blankTime) {
@@ -97,6 +98,7 @@ function draw(two, width, height) {
             // BARS[deviantBar].width = 0;
             BARS[deviantBar].fill = "white";
         } else if (sum <= (2*barTime + blankTime)){
+            // BARS[deviantBar] = (width - 230) / barCount;
             BARS[deviantBar].height = HEIGHTS[deviantBar] + deviation;
             BARS[deviantBar].fill = getColorScale(deviantBar);
             // BARS[deviantBar].width = (width - 230)/barCount;
